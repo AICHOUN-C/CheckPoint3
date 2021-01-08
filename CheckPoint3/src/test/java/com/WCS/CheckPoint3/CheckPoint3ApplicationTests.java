@@ -1,0 +1,13 @@
+package com.WCS.CheckPoint3;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class CheckPoint3ApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}
