@@ -2,9 +2,12 @@ package com.WCS.CheckPoint3.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Post {
@@ -15,6 +18,10 @@ public class Post {
 	private Long id;
 	private String message;
 	private String imageUrl;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "users_id")
+	private Users users;
 	
 	public Post () {
 		
@@ -42,6 +49,14 @@ public class Post {
 
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
-	}	
+	}
+
+	public Users getUsers() {
+		return users;
+	}
+
+	public void setUsers(Users users) {
+		this.users = users;
+	}
 
 }
