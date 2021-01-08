@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.WCS.CheckPoint3.entities.Users;
 import com.WCS.CheckPoint3.services.UserPostsService;
 
-@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin(origins = "https://javangular-checkpoint3.jsrover.wilders.dev", maxAge = 3600)
 @RestController
 public class UsersController {
 
