@@ -22,6 +22,7 @@ public class Users {
 	private Long id;
 	private String firstname;
 	private String lastname;
+	private String imageUrl;
 	
 	@OneToMany(fetch = FetchType.LAZY)
 	@JoinColumn(name = "post_id")
@@ -54,6 +55,14 @@ public class Users {
 
 	public void setLastname(String lastname) {
 		this.lastname = lastname;
+	}
+
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
 	}
 
 	public List<Post> getPost() {

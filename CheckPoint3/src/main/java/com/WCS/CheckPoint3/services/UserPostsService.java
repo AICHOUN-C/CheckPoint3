@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.WCS.CheckPoint3.entities.Post;
@@ -30,8 +31,12 @@ public class UserPostsService {
 		return userRepository.findById(id).get();
 	}
 	
-	public Users editUser(@RequestBody Users user) {
-		return userRepository.save(user);
+	public Users editUser(@PathVariable Long id, @RequestBody Users user) {
+		Users userToUpdate = userRepository.findById(id).get();
+		userToUpdate.setFirstname(user.getFirstname());
+		userToUpdate.setLastname(user.getLastname());
+		userToUpdate.setImageUrl(user.getImageUrl());
+		return userRepository.save(userToUpdate);
 	}
 	
 }
