@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.WCS.CheckPoint3.entities.Users;
 import com.WCS.CheckPoint3.services.UserPostsService;
-import com.sncf.wcs.api.model.Train;
 
 @CrossOrigin(origins = "https://javangular-checkpoint3.jsrover.wilders.dev", maxAge = 3600)
 @RestController
