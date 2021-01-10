@@ -3,6 +3,7 @@ package com.WCS.CheckPoint3.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -31,12 +32,12 @@ public class UserPostsService {
 		return userRepository.findById(id).get();
 	}
 	
-	public Users editUser(@PathVariable Long id, @RequestBody Users user) {
+	public ResponseEntity<Users> editUser(@PathVariable Long id, @RequestBody Users user) {
 		Users userToUpdate = userRepository.findById(id).get();
 		userToUpdate.setFirstname(user.getFirstname());
 		userToUpdate.setLastname(user.getLastname());
 		userToUpdate.setImageUrl(user.getImageUrl());
-		return userRepository.save(userToUpdate);
+		return ResponseEntity.ok(userRepository.save(userToUpdate));
 	}
 	
 }
