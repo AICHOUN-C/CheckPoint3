@@ -1,5 +1,7 @@
 package com.WCS.CheckPoint3.entities;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -8,6 +10,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class Post {
@@ -22,6 +27,11 @@ public class Post {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "users_id")
 	private Users users;
+	
+	@OneToMany(fetch = FetchType.LAZY)
+	@JoinColumn(name = "comments_id")
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+	private List<Comments> comments;
 	
 	public Post () {
 		
@@ -57,6 +67,14 @@ public class Post {
 
 	public void setUsers(Users users) {
 		this.users = users;
+	}
+
+	public List<Comments> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comments> comments) {
+		this.comments = comments;
 	}
 
 }
