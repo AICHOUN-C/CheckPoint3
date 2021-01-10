@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.WCS.CheckPoint3.entities.Users;
 import com.WCS.CheckPoint3.services.UserPostsService;
 
-@CrossOrigin(origins = "https://javangular-checkpoint3.jsrover.wilders.dev", maxAge = 3600)
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 public class UsersController {
 
@@ -24,8 +24,8 @@ public class UsersController {
 		return usersService.getAllUsers();
 	}
 	
-	@GetMapping("/details/{id}")
-	public ResponseEntity<Users> showTrain(@PathVariable Long id){
+	@GetMapping("/users/{id}")
+	public ResponseEntity<Users> showUserDetails(@PathVariable Long id){
 		Users user = usersService.getUserById(id);
 		return ResponseEntity.ok().body(user);
 	}
