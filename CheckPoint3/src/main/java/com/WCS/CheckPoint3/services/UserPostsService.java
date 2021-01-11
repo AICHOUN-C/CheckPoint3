@@ -36,12 +36,12 @@ public class UserPostsService {
 		return userRepository.findById(id).get();
 	}
 	
-	public ResponseEntity<Users> editUser(@PathVariable Long id, @RequestBody Users user) {
+	public Users editUser( Long id, Users user) {
 		Users userToUpdate = userRepository.findById(id).get();
 		userToUpdate.setFirstname(user.getFirstname());
 		userToUpdate.setLastname(user.getLastname());
 		userToUpdate.setImageUrl(user.getImageUrl());
-		return ResponseEntity.ok(userRepository.save(userToUpdate));
+		return userRepository.save(userToUpdate);
 	}
 	
 	public List<Comments> getAllComments() {
